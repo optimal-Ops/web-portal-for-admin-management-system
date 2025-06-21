@@ -1,0 +1,171 @@
+<div class="container mt-4">
+  <div class="row align-items-center mb-3">
+    <div class="col-6">
+      <h2 class="text-primary">Employees</h2>
+    </div>
+    <div class="col-6 text-end">
+      <button class="btn btn-success" (click)="onCancel()">Add New</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <!-- Employee Table -->
+      <div class="card shadow-sm">
+        <div class="card-header bg-secondary text-white">
+          <h5>Employee List</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead class="table-dark">
+                <tr>
+                  <th>Sr No</th>
+                  <th>Employee ID</th>
+                  <th>Name</th>
+                  <th>Contact No</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let employee of employeeList; let i = index; trackBy: trackByEmployeeId">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ employee.employeeid }}</td>
+                  <td>{{ employee.employeename }}</td>
+                  <td>{{ employee.contactnumber }}</td>
+                  <td>{{ employee.email }}</td>
+                  <td>{{ employee.positionname }}</td>
+                  <td>
+                    <button class="btn btn-primary btn-sm" (click)="onEdit(employee)">
+                      Edit
+                    </button>
+                    <button class="btn btn-danger btn-sm" (click)="onDelete(employee)">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <!-- Employee Form -->
+      <div class="card shadow-sm">
+        <div class="card-header bg-secondary text-white">
+          <h5>{{ editingId ? 'Edit Employee' : 'Create New Employee' }}</h5>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="employeeId" class="form-label">Employee ID</label>
+              <input
+                type="text"
+                class="form-control"
+                id="employeeId"
+                formControlName="employeeId"
+                placeholder="Employee ID"
+                readonly
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="employeeName" class="form-label">Employee Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="employeeName"
+                formControlName="employeeName"
+                placeholder="Enter name"
+              />
+              <div
+                *ngIf="employeeForm.get('employeeName')?.invalid && employeeForm.get('employeeName')?.touched"
+                class="text-danger"
+              >
+                Name is required.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="contactNo" class="form-label">Contact No</label>
+              <input
+                type="text"
+                class="form-control"
+                id="contactNo"
+                formControlName="contactNo"
+                placeholder="Enter contact"
+              />
+              <div
+                *ngIf="employeeForm.get('contactNo')?.invalid && employeeForm.get('contactNo')?.touched"
+                class="text-danger"
+              >
+                Contact number must be 10 digits.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="emailId" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="emailId"
+                formControlName="emailId"
+                placeholder="Enter email"
+              />
+              <div
+                *ngIf="employeeForm.get('emailId')?.invalid && employeeForm.get('emailId')?.touched"
+                class="text-danger"
+              >
+                Please enter a valid email address.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="positionId" class="form-label">Role</label>
+              <select
+                id="positionId"
+                class="form-select"
+                formControlName="positionId"
+              >
+                <option [ngValue]="null">-- choose one --</option>
+                <option
+                  *ngFor="let p of positions"
+                  [value]="p.positionid"
+                >
+                  {{ p.positionname }}
+                </option>
+              </select>
+              <div
+                *ngIf="employeeForm.get('positionId')?.invalid && employeeForm.get('positionId')?.touched"
+                class="text-danger"
+              >
+                Please select a role.
+              </div>
+            </div>
+
+            <div class="text-end">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="employeeForm.invalid"
+              >
+                {{ editingId ? 'Update Employee' : 'Save Employee' }}
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="onCancel()"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

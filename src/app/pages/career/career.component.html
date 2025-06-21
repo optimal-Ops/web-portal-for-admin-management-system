@@ -1,0 +1,76 @@
+<!-- Main Content -->
+<main class="container position-relative py-4">
+  <!-- Decorative background blur -->
+  <div class="bg-blur"></div>
+
+  <!-- Careers header section -->
+  <section class="py-5">
+    <div class="hiring-badge">We're hiring!</div>
+    <h1 class="display-5 fw-bold mb-4">Be part of our mission</h1>
+    <p class="lead mb-5 mission-text">
+      We're looking for passionate people to join us on our mission. We value
+      flat hierarchies, clear communication, and full ownership and
+      responsibility.
+    </p>
+
+    <!-- Department filter buttons -->
+    <div class="mb-5">
+      @for (department of ['View all', 'Development', 'Design', 'Marketing',
+      'Customer Service', 'Operations', 'Finance', 'Management']; track
+      department) {
+      <button
+        class="department-btn"
+        [class.active]="selectedDepartment === department"
+        (click)="filterJobs(department)"
+      >
+        {{ department }}
+      </button>
+      }
+    </div>
+  </section>
+
+  <!-- Job listings -->
+  <section>
+    <!-- Product Designer -->
+    @for(job of filteredJobs;track job.title){
+    <div class="job-card">
+      <div class="row">
+        <div class="col-md-8">
+          <h4 class="mb-2">{{ job.title }}</h4>
+          <p class="mb-4">{{ job.description }}</p>
+          <div>
+            <span class="badge-remote me-2">
+              <i class="bi bi-geo-alt me-1"></i> 100% remote
+            </span>
+            <span class="badge-fulltime">
+              <i class="bi bi-clock me-1"></i> Full-time
+            </span>
+          </div>
+        </div>
+        <div
+          class="col-md-4 text-md-end d-flex align-items-center justify-content-md-end mt-3 mt-md-0"
+        >
+          <!--buuton->link -->
+          <div class="">
+            <a [routerLink]="['/apply', job.id]" class="apply-btn">
+              Apply <i class="bi bi-arrow-up-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    } @if (filteredJobs.length === 0) {
+    <div class="text-center py-5">
+      <p class="text-muted">
+        No positions available in this department currently.
+      </p>
+      <button
+        class="btn btn-outline-dark mt-3"
+        (click)="filterJobs('View all')"
+      >
+        View all positions
+      </button>
+    </div>
+    }
+  </section>
+</main>

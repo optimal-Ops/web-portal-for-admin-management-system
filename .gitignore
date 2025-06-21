@@ -1,0 +1,55 @@
+# Angular build and cache
+/dist
+/tmp
+/out-tsc
+/.angular/cache
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log*
+yarn-error.log*
+
+# Logs and backups
+*.log
+*.tgz
+*.bak
+*.swp
+*.tmp
+
+# Environment variables
+.env
+.env.*
+
+# Coverage and testing
+/coverage
+testem.log
+
+# System
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDEs
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Misc
+/libpeerconnection.log
+.typings
+.history/*
+/connect.lock
+.sass-cache/

@@ -1,0 +1,103 @@
+<div class="card-container">
+  <div class="card">
+    <div class="card-header">
+      <h2>Job Application</h2>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="jobApplicationForm" (ngSubmit)="onSubmit()">
+        <!-- Name Field -->
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="name"
+            class="form-control"
+            required
+          />
+          <small
+            class="error"
+            *ngIf="
+              jobApplicationForm.get('name')?.invalid &&
+              jobApplicationForm.get('name')?.touched
+            "
+          >
+            Name is required and must be at least 3 characters long.
+          </small>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            class="form-control"
+            required
+          />
+          <small
+            class="error"
+            *ngIf="
+              jobApplicationForm.get('email')?.invalid &&
+              jobApplicationForm.get('email')?.touched
+            "
+          >
+            Please enter a valid email address.
+          </small>
+        </div>
+
+        <!-- Phone Field -->
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input
+            id="phone"
+            type="text"
+            formControlName="phone"
+            class="form-control"
+            required
+          />
+          <small
+            class="error"
+            *ngIf="
+              jobApplicationForm.get('phone')?.invalid &&
+              jobApplicationForm.get('phone')?.touched
+            "
+          >
+            Please enter a valid 10-digit phone number.
+          </small>
+        </div>
+
+        <!-- Resume Field -->
+        <div class="form-group">
+          <label for="resume">Resume URL:</label>
+          <input
+            id="resume"
+            type="url"
+            formControlName="resume"
+            class="form-control"
+            placeholder="https://drive.google.com/... or https://linkedin.com/..."
+            required
+          />
+          <small
+            class="error"
+            *ngIf="
+              jobApplicationForm.get('resume')?.invalid &&
+              jobApplicationForm.get('resume')?.touched
+            "
+          >
+            Valid URL starting with http:// or https:// required
+          </small>
+        </div>
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="jobApplicationForm.invalid"
+        >
+          Submit Application
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

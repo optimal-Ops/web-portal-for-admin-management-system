@@ -1,0 +1,117 @@
+<div class="container mt-4">
+    <div class="row">
+      <!-- Project List -->
+      <div class="col-8">
+        <div class="card shadow-sm">
+          <div class="card-header bg-secondary text-white">
+            <h5>Project List</h5>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                  <tr>
+                    <th>#</th>
+                    <th>Project Name</th>
+                    <th>Managed By</th>
+                    <th>Start Date</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let project of projectList; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ project.projectname }}</td>
+                    <td>{{ project.managedby ?? '—' }}</td>
+                    <td>{{ project.startdate | date: 'mediumDate' }}</td>
+                    <td>
+                        <button class="btn btn-sm btn-warning" (click)="onEdit(project)">Edit</button>
+                        <button class="btn btn-sm btn-danger" (click)="onDelete(project.id)">Delete</button>
+                      </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Create Project Form -->
+      <div class="col-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-secondary text-white">
+            <h5>Create New Project</h5>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+              <!-- Project Name -->
+              <div class="mb-3">
+                <label for="projectName" class="form-label">Project Name</label>
+                <input
+                  id="projectName"
+                  type="text"
+                  class="form-control"
+                  formControlName="projectName"
+                  placeholder="Enter project name"
+                />
+                <div
+                  *ngIf="projectForm.get('projectName')?.invalid && projectForm.get('projectName')?.touched"
+                  class="text-danger"
+                >
+                  Project Name is required.
+                </div>
+              </div>
+  
+              <!-- Managed By -->
+              <div class="mb-3">
+                <label for="managedBy" class="form-label">Managed By (Employee ID)</label>
+                <input
+                  id="managedBy"
+                  type="number"
+                  class="form-control"
+                  formControlName="managedBy"
+                  placeholder="Enter manager's employee ID"
+                />
+              </div>
+  
+              <!-- Start Date -->
+              <div class="mb-3">
+                <label for="startDate" class="form-label">Start Date</label>
+                <input
+                  id="startDate"
+                  type="date"
+                  class="form-control"
+                  formControlName="startDate"
+                />
+                <div
+                  *ngIf="projectForm.get('startDate')?.invalid && projectForm.get('startDate')?.touched"
+                  class="text-danger"
+                >
+                  Start Date is required.
+                </div>
+              </div>
+  
+              <!-- Actions -->
+              <div class="text-end">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  [disabled]="projectForm.invalid"
+                >
+                  Save Project
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  (click)="onReset()"
+                >
+                  Reset
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

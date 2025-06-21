@@ -1,0 +1,42 @@
+
+<div class="parent">
+    <div class="container">
+        <div class="row">
+          <!-- Left Blank Side -->
+          <div class="col-lg-6">
+            <img src='./assets/pics/6.jpg' class="d-block w-100" alt="Slide 3">
+          </div>
+      
+          <!-- Right Side Form -->
+          <div class="col-lg-6 d-flex align-items-center  ">
+            <div class="form-2-wrapper">
+              <div class="logo text-center">
+                <h2>Admin</h2>
+              </div>
+              <h2 class="text-center mb-4">Sign Into Your Account</h2>
+              <form action="#">
+                <div class="mb-3 form-box">
+                  <input type="text" class="form-control"  name="username" placeholder="Enter Your username"[(ngModel)]="loginObj.username" required>
+                </div>
+                <div class="mb-3">
+                  <input type="password" class="form-control" id="password"  name="password" placeholder="Enter Your Password"  [(ngModel)]="loginObj.password" required>
+                </div>
+                <div class="mb-3">
+                   
+                </div>
+                <button type="button"  class="btn btn-outline-secondary login-btn w-100 mb-3" (click)="onLogin()">Login</button>
+                <div class="social-login mb-3 type--A">
+                  <a [routerLink]="['/main/home']" class="text-secondary text-decoration-none">Go Home</a>
+
+                </div>
+              </form>
+      
+              <!-- Register Link -->
+              
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+  

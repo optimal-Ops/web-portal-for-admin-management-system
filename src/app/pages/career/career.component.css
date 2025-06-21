@@ -1,0 +1,133 @@
+.job-card {
+    border-top: 1px solid #e5e7eb;
+    padding: 24px 0;
+}
+
+.badge-remote,
+.badge-fulltime {
+    border-radius: 16px;
+    padding: 4px 10px;
+    font-size: 12px;
+    border: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+}
+
+
+.hiring-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 16px;
+}
+
+.apply-btn {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.apply-btn:hover {
+    opacity: 0.7;
+}
+
+.apply-btn i {
+    margin-left: 4px;
+}
+
+.department-btn {
+    border-radius: 20px;
+    padding: 6px 16px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    border: 1px solid #e5e7eb;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.department-btn:hover {
+    background-color: #f9fafb;
+}
+
+.department-btn.active {
+    background-color: #000;
+    color: white;
+    border-color: #000;
+}
+
+.bg-blur {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 200, 200, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.mission-text {
+    max-width: 600px;
+}
+
+.job-card h4 {
+    font-weight: 600;
+}
+
+.job-card p {
+    color: #4b5563;
+}
+
+.job-card:last-child {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+@media (max-width: 768px) {
+    .department-btn {
+        margin-bottom: 10px;
+    }
+
+    .bg-blur {
+        width: 300px;
+        height: 300px;
+    }
+
+    .job-card h4 {
+        font-size: 18px;
+    }
+
+    .apply-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+        margin-top: 15px;
+        border: 1px solid #e5e7eb;
+        border-radius: 20px;
+    }
+}
+.application-form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.application-form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+}
