@@ -65,3 +65,25 @@ Open a pull request or issue for feedback and contributions.
 
 - [Angular CLI Docs](https://angular.io/cli)
 - [Full Angular Docs](https://angular.io/docs)
+
+## 🖼️ Screenshots
+
+### 🔐 Login Page
+
+![Login Page](src/assets/pics/9.png)
+
+### 🧑‍💼 Employee Management
+
+![Employee List](src/assets/pics/10.png)
+
+### 📊 Project Management
+
+![Project List](src/assets/pics/11.png)
+
+### 💼 Career Page
+
+![Career Page](src/assets/pics/12.png)
+
+### 🏠 Home Page
+
+![Home Page](src/assets/pics/13.png)
