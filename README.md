@@ -68,22 +68,22 @@ Open a pull request or issue for feedback and contributions.
 
 ## 🖼️ Screenshots
 
-### 🔐 Login Page
+### 🏠 Home Page
 
-![Login Page](src/assets/pics/9.png)
-
-### 🧑‍💼 Employee Management
-
-![Employee List](src/assets/pics/10.png)
-
-### 📊 Project Management
-
-![Project List](src/assets/pics/11.png)
+![Home Page](src/assets/pics/9.png)
 
 ### 💼 Career Page
 
-![Career Page](src/assets/pics/12.png)
+![Career Page](src/assets/pics/10.png)
 
-### 🏠 Home Page
+### 🔐 Login Page
 
-![Home Page](src/assets/pics/13.png)
+![Login Page](src/assets/pics/11.png)
+
+### 🧑‍💼 Employee Management
+
+![Employee List](src/assets/pics/12.png)
+
+
+### 📊 Project Management
+![Project List](src/assets/pics/13.png)
